@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {ProfileData} from "../types"
 
-const Profile = (props: ProfileData) => {
+const Profile: React.FC<ProfileData> = (props) => {
     const [name, setName] = React.useState(props.name)
     const [player_name, setPlayerName] = React.useState(props.player_name)
     const [lace, setLace] = React.useState(props.lace)
@@ -10,8 +10,16 @@ const Profile = (props: ProfileData) => {
     const [lace_ability, setLaceAbility] = React.useState(props.lace_ability)
     const [lineage, setLineage] = React.useState(props.lineage)
 
+    const log = (event: React.MouseEvent) => {
+        event.preventDefault()
+        console.log({
+            name, player_name, lace, age, sex, lace_ability, lineage
+        })
+    }
+
     return (
         <div id="profile">
+            <a href="#" onClick={log}>Print</a>
             <table>
                 <tbody>
                 <tr>
