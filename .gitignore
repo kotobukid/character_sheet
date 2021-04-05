@@ -1,0 +1,7 @@
+*.pyc
+/.idea/
+/node_modules/
+/venv/
+/.vagrant/
+/character_sheet/secret.py
+/character_sheet/env.py
