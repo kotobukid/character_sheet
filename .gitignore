@@ -6,3 +6,5 @@
 /character_sheet/secret.py
 /character_sheet/env.py
 /db.sqlite3
+/dist/
+/static/js/

@@ -1,3 +1,5 @@
+import * as React from 'react'
+import {render} from 'react-dom'
 import Profile from './components/profile'
 
 window.onload = () => {
@@ -11,5 +13,5 @@ window.onload = () => {
         )
     }
 
-    ReactDOM.render(<MainApp />, $main)
+    render(<MainApp />, $main)
 }
