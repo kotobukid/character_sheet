@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {LevelsData} from "../types"
+import SqInput from "./parts/sq_input";
 
 const Levels: React.FC<LevelsData> = (props) => {
     const [exp, setExp] = React.useState(props.exp)
@@ -10,8 +11,8 @@ const Levels: React.FC<LevelsData> = (props) => {
             <table>
                 <tbody>
                 <tr>
-                    <td>経験点<br /><input type="number" value={exp} onChange={e => {setExp(Number(e.target.value))}} /></td>
-                    <td>冒険者レベル<br /><input type="number" value={lv} onChange={e => {setLv(Number(e.target.value))}} /></td>
+                    <td><SqInput value={exp} digit={5} onchange={(value: string) => {setExp(Number(value))}}>経験点</SqInput></td>
+                    <td><SqInput value={lv} digit={5} onchange={(value: string) => {setLv(Number(value))}}>冒険者レベル</SqInput></td>
                 </tr>
                 </tbody>
             </table>

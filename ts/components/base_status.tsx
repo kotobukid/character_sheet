@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {BaseStatusData} from "../types"
+import SqInput from "./parts/sq_input";
 
 const BaseStatus: React.FC<BaseStatusData> = (props) => {
     const [skill, setSkill] = React.useState(props.skill)
@@ -24,43 +25,43 @@ const BaseStatus: React.FC<BaseStatusData> = (props) => {
             <table>
                 <tbody>
                 <tr>
-                    <td rowSpan={2}>技<br /><input type="number" value={skill} onChange={e => {setSkill(Number(e.target.value))}} /></td>
-                    <td>A<br /><input type="number" value={a} onChange={e => {setA(Number(e.target.value))}} /></td>
-                    <td>成長<br /><input type="number" value={a_growth} onChange={e => {setAGrowth(Number(e.target.value))}} /></td>
+                    <td rowSpan={2}><br /><SqInput value={skill} digit={3} onchange={(value: string) => {setSkill(Number(value))}}>技</SqInput></td>
+                    <td><SqInput value={a} digit={3} onchange={(value: string) => {setA(Number(value))}}>A</SqInput></td>
+                    <td><SqInput value={a_growth} digit={3} onchange={(value: string) => {setAGrowth(Number(value))}}>成長</SqInput></td>
                     <td>器用度<br />{skill + a + a_growth}</td>
                     <td>{Math.floor((skill + a + a_growth) / 6)}</td>
                 </tr>
                 <tr>
-                    <td>B<br /><input type="number" value={b} onChange={e => {setB(Number(e.target.value))}} /></td>
-                    <td><br /><input type="number" value={b_growth} onChange={e => {setBGrowth(Number(e.target.value))}} /></td>
+                    <td><SqInput value={b} digit={3} onchange={(value: string) => {setB(Number(value))}}>B</SqInput></td>
+                    <td><SqInput value={b_growth} digit={3} onchange={(value: string) => {setBGrowth(Number(value))}} /></td>
                     <td>敏捷度<br />{skill + b + b_growth}</td>
                     <td>{Math.floor((skill + b + b_growth) / 6)}</td>
                 </tr>
 
                 <tr>
-                    <td rowSpan={2}>体<br /><input type="number" value={body} onChange={e => {setBody(Number(e.target.value))}} /></td>
-                    <td>C<br /><input type="number" value={c} onChange={e => {setC(Number(e.target.value))}} /></td>
-                    <td><br /><input type="number" value={c_growth} onChange={e => {setCGrowth(Number(e.target.value))}} /></td>
+                    <td rowSpan={2}><br /><SqInput value={body} digit={3} onchange={(value: string) => {setBody(Number(value))}}>体</SqInput></td>
+                    <td><SqInput value={c} digit={3} onchange={(value: string) => {setC(Number(value))}}>C</SqInput></td>
+                    <td><SqInput value={c_growth} digit={3} onchange={(value: string) => {setCGrowth(Number(value))}} /></td>
                     <td>筋力<br />{body + c + c_growth}</td>
                     <td>{Math.floor((body + c + c_growth) / 6)}</td>
                 </tr>
                 <tr>
-                    <td>D<br /><input type="number" value={d} onChange={e => {setD(Number(e.target.value))}} /></td>
-                    <td><br /><input type="number" value={d_growth} onChange={e => {setDGrowth(Number(e.target.value))}} /></td>
+                    <td><SqInput value={d} digit={3} onchange={(value: string) => {setD(Number(value))}}>D</SqInput></td>
+                    <td><SqInput value={d_growth} digit={3} onchange={(value: string) => {setDGrowth(Number(value))}} /></td>
                     <td>生命力<br />{body + d + d_growth}</td>
                     <td>{Math.floor((body + d + d_growth) / 6)}</td>
                 </tr>
 
                 <tr>
-                    <td rowSpan={2}>心<br /><input type="number" value={mental} onChange={e => {setMental(Number(e.target.value))}} /></td>
-                    <td>E<br /><input type="number" value={e} onChange={e => {setE(Number(e.target.value))}} /></td>
-                    <td><br /><input type="number" value={e_growth} onChange={e => {setEGrowth(Number(e.target.value))}} /></td>
+                    <td rowSpan={2}><br /><SqInput value={mental} digit={3} onchange={(value: string) => {setMental(Number(value))}}>心</SqInput></td>
+                    <td><SqInput value={e} digit={3} onchange={(value: string) => {setE(Number(value))}}>E</SqInput></td>
+                    <td><SqInput value={e_growth} digit={3} onchange={(value: string) => {setEGrowth(Number(value))}} /></td>
                     <td>知力<br />{mental + e + e_growth}</td>
                     <td>{Math.floor((mental + e + e_growth) / 6)}</td>
                 </tr>
                 <tr>
-                    <td>F<br /><input type="number" value={f} onChange={e => {setF(Number(e.target.value))}} /></td>
-                    <td><br /><input type="number" value={f_growth} onChange={e => {setFGrowth(Number(e.target.value))}} /></td>
+                    <td><SqInput value={f} digit={3} onchange={(value: string) => {setF(Number(value))}}>F</SqInput></td>
+                    <td><SqInput value={f_growth} digit={3} onchange={(value: string) => {setFGrowth(Number(value))}} /></td>
                     <td>精神力<br />{mental + f + f_growth}</td>
                     <td>{Math.floor((mental + f + f_growth) / 6)}</td>
                 </tr>

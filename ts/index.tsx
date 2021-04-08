@@ -41,7 +41,7 @@ window.onload = () => {
     }
 
     const levels_data: LevelsData = {
-        exp: 0,
+        exp: 5000,
         lv: 2
     }
 
