@@ -1,8 +1,9 @@
 import * as React from 'react'
 import {render} from 'react-dom'
 import Profile from './components/profile'
+import BaseStatus from './components/base_status'
 import "../less/index.less"
-import {ProfileData} from "./types";
+import {ProfileData, BaseStatusData} from "./types";
 
 window.onload = () => {
     const $main = document.querySelector('#main')
@@ -17,14 +18,34 @@ window.onload = () => {
         lineage: '商人'
     }
 
+    const base_status: BaseStatusData = {
+        skill: 12,
+        body: 5,
+        mental: 9,
+
+        a: 6,
+        b: 7,
+        c: 4,
+        d: 6,
+        e: 11,
+        f: 6,
+
+        a_growth: 0,
+        b_growth: 0,
+        c_growth: 0,
+        d_growth: 0,
+        e_growth: 0,
+        f_growth: 0,
+    }
 
     const MainApp = () => {
         return (
             <div>
                 <Profile {...profile_data}/>
+                <BaseStatus {...base_status}/>
             </div>
         )
     }
 
-    render(<MainApp />, $main)
+    render(<MainApp/>, $main)
 }
