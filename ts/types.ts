@@ -41,3 +41,12 @@ export declare type BaseStatusData = {
     // e_bonus: number,
     // f_bonus: number
 }
+
+export declare type MainSpec = {
+
+}
+
+export declare type LevelsData = {
+    exp: number,
+    lv: number
+}

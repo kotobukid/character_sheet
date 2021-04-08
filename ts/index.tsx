@@ -2,8 +2,10 @@ import * as React from 'react'
 import {render} from 'react-dom'
 import Profile from './components/profile'
 import BaseStatus from './components/base_status'
+import MainSpec from './components/main_spec'
+import Levels from './components/levels'
 import "../less/index.less"
-import {ProfileData, BaseStatusData} from "./types";
+import {ProfileData, BaseStatusData, LevelsData} from "./types";
 
 window.onload = () => {
     const $main = document.querySelector('#main')
@@ -38,11 +40,18 @@ window.onload = () => {
         f_growth: 0,
     }
 
+    const levels_data: LevelsData = {
+        exp: 0,
+        lv: 2
+    }
+
     const MainApp = () => {
         return (
             <div>
                 <Profile {...profile_data}/>
                 <BaseStatus {...base_status}/>
+                <MainSpec {...base_status} {...levels_data}/>
+                <Levels {...levels_data}/>
             </div>
         )
     }
