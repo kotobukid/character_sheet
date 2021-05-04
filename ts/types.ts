@@ -10,22 +10,37 @@ export declare type ProfileData = {
 
 export declare type BaseStatusData = {
     skill: number,
+    setSkill: Function,
     body: number,
+    setBody: Function,
     mental: number,
+    setMental: Function,
 
     a: number,
+    setA: Function,
     b: number,
+    setB: Function,
     c: number,
+    setC: Function,
     d: number,
+    setD: Function,
     e: number,
+    setE: Function,
     f: number,
+    setF: Function,
 
     a_growth: number,
+    setAGrowth: Function,
     b_growth: number,
+    setBGrowth: Function,
     c_growth: number,
+    setCGrowth: Function,
     d_growth: number,
+    setDGrowth: Function,
     e_growth: number,
+    setEGrowth: Function,
     f_growth: number,
+    setFGrowth: Function,
 
     // a_dex: number,
     // b_agi: number,
@@ -48,5 +63,7 @@ export declare type MainSpec = {
 
 export declare type LevelsData = {
     exp: number,
+    setExp: Function,
     lv: number
+    setLv: Function
 }

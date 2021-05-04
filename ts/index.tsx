@@ -5,7 +5,7 @@ import BaseStatus from './components/base_status'
 import MainSpec from './components/main_spec'
 import Levels from './components/levels'
 import "../less/index.less"
-import {ProfileData, BaseStatusData, LevelsData} from "./types";
+import {ProfileData} from "./types";
 
 window.onload = () => {
     const $main = document.querySelector('#main')
@@ -20,38 +20,64 @@ window.onload = () => {
         lineage: '商人'
     }
 
-    const base_status: BaseStatusData = {
-        skill: 12,
-        body: 5,
-        mental: 9,
-
-        a: 6,
-        b: 7,
-        c: 4,
-        d: 6,
-        e: 11,
-        f: 6,
-
-        a_growth: 0,
-        b_growth: 0,
-        c_growth: 0,
-        d_growth: 0,
-        e_growth: 0,
-        f_growth: 0,
-    }
-
-    const levels_data: LevelsData = {
-        exp: 5000,
-        lv: 2
-    }
-
     const MainApp = () => {
+        const [exp, setExp] = React.useState(5000)
+        const [lv, setLv] = React.useState(2)
+        const [skill, setSkill] = React.useState(12)
+        const [body, setBody] = React.useState(5)
+        const [mental, setMental] = React.useState(12)
+        const [a, setA] = React.useState(6)
+        const [b, setB] = React.useState(7)
+        const [c, setC] = React.useState(4)
+        const [d, setD] = React.useState(6)
+        const [e, setE] = React.useState(11)
+        const [f, setF] = React.useState(6)
+        const [a_growth, setAGrowth] = React.useState(6)
+        const [b_growth, setBGrowth] = React.useState(7)
+        const [c_growth, setCGrowth] = React.useState(4)
+        const [d_growth, setDGrowth] = React.useState(6)
+        const [e_growth, setEGrowth] = React.useState(11)
+        const [f_growth, setFGrowth] = React.useState(6)
+
+        const base_status = {
+            skill,
+            setSkill,
+            body,
+            setBody,
+            mental,
+            setMental,
+            a,
+            b,
+            c,
+            d,
+            e,
+            f,
+            setA,
+            setB,
+            setC,
+            setD,
+            setE,
+            setF,
+            a_growth,
+            b_growth,
+            c_growth,
+            d_growth,
+            e_growth,
+            f_growth,
+            setAGrowth,
+            setBGrowth,
+            setCGrowth,
+            setDGrowth,
+            setEGrowth,
+            setFGrowth
+        }
+
         return (
             <div>
                 <Profile {...profile_data}/>
-                <BaseStatus {...base_status}/>
-                <MainSpec {...base_status} {...levels_data}/>
-                <Levels {...levels_data}/>
+                <BaseStatus {...base_status} />
+                <MainSpec {...base_status} lv={lv}/>
+                <Levels lv={lv} exp={exp} setLv={setLv} setExp={setExp}/>
             </div>
         )
     }
