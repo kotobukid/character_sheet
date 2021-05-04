@@ -1,9 +1,9 @@
 import * as React from 'react'
 import {render} from 'react-dom'
-import Profile from './components/profile'
-import BaseStatus from './components/base_status'
-import MainSpec from './components/main_spec'
-import Levels from './components/levels'
+import Profile from './components/Profile'
+import BaseStatus from './components/BaseStatus'
+import MainSpec from './components/MainSpec'
+import Levels from './components/Levels'
 import "../less/index.less"
 import {ProfileData} from "./types";
 

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {BaseStatusData} from "../types"
-import SqInput from "./parts/sq_input";
+import SqInput from "./parts/SqInput";
 import StatusBox from "./parts/StatusBox";
 
 const BaseStatus: React.FC<BaseStatusData> = (props) => {

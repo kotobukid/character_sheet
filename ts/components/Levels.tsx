@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {LevelsData} from "../types"
-import SqInput from "./parts/sq_input";
+import SqInput from "./parts/SqInput";
 
 const Levels: React.FC<LevelsData> = (props) => {
 
