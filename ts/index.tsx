@@ -5,7 +5,19 @@ import BaseStatus from './components/BaseStatus'
 import MainSpec from './components/MainSpec'
 import Levels from './components/Levels'
 import "../less/index.less"
-import {ProfileData} from "./types";
+import {Magic, ProfileData} from "./types";
+import Magics from './components/Magics'
+
+function useIncrement<T>(items: T[]): Function {
+    const [length, setLength] = React.useState(items.length)
+
+    const increment = (): number => {
+        setLength(length + 1)
+        return length + 1
+    }
+
+    return increment
+}
 
 window.onload = () => {
     const $main = document.querySelector('#main')
@@ -38,6 +50,21 @@ window.onload = () => {
         const [d_growth, setDGrowth] = React.useState(6)
         const [e_growth, setEGrowth] = React.useState(11)
         const [f_growth, setFGrowth] = React.useState(6)
+
+        const _magics = [{
+            key: 1, label: 'キュアウーンズ', description: "hogehoge"
+        }, {
+            key: 2, label: 'エンチャント・ウェポン', description: "hogehoge"
+        }] as Magic[]
+
+        const incrementMagics = useIncrement(_magics)
+
+        const [magics, setMagics] = React.useState(_magics)
+
+        const appendMagic = (m: Magic) => {
+            m.key = incrementMagics()
+            setMagics([...magics, m])
+        }
 
         const base_status = {
             skill,
@@ -73,11 +100,16 @@ window.onload = () => {
         }
 
         return (
-            <div>
-                <Profile {...profile_data}/>
-                <BaseStatus {...base_status} />
-                <MainSpec {...base_status} lv={lv}/>
-                <Levels lv={lv} exp={exp} setLv={setLv} setExp={setExp}/>
+            <div className="root">
+                <div>
+                    <Profile {...profile_data}/>
+                    <BaseStatus {...base_status} />
+                    <MainSpec {...base_status} lv={lv}/>
+                    <Levels lv={lv} exp={exp} setLv={setLv} setExp={setExp}/>
+                </div>
+                <div>
+                    <Magics magics={magics} setMagics={setMagics} appendMagic={appendMagic}></Magics>
+                </div>
             </div>
         )
     }

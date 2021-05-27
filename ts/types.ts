@@ -67,3 +67,9 @@ export declare type LevelsData = {
     lv: number
     setLv: Function
 }
+
+export declare type Magic = {
+    key: number,
+    label: string,
+    description: string
+}
