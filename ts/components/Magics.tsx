@@ -10,7 +10,11 @@ declare type MagicsProps = {
 const Magics: React.FC<MagicsProps> = (props) => {
 
     const colStyle: React.CSSProperties = {
-        width: "100px"
+        width: "160px"
+    }
+
+    const colStyleShort: React.CSSProperties = {
+        width: "24px"
     }
 
     const changeMagic = (m: Magic, e: React.ChangeEvent<HTMLInputElement>, type: 'label' | 'description') => {
@@ -26,16 +30,24 @@ const Magics: React.FC<MagicsProps> = (props) => {
         props.appendMagic({label: '', description: '', key: -1})
     }
 
+    const deleteMagic = (id: number) => {
+        props.setMagics(props.magics.filter((m: Magic) => {
+            return m.key !== id;
+        }));
+    }
+
     return (
         <table className="magics">
             <colgroup>
                 <col style={colStyle}/>
                 <col style={colStyle}/>
+                <col style={colStyleShort}/>
             </colgroup>
             <thead>
             <tr>
                 <th>よく使う魔法</th>
                 <th>MP、効果概要</th>
+                <th/>
             </tr>
             </thead>
             <tbody>
@@ -48,14 +60,20 @@ const Magics: React.FC<MagicsProps> = (props) => {
                         <td><input type="text" value={m.description} onChange={e => {
                             changeMagic(m, e, 'description')
                         }}/></td>
+                        <td className="center">
+                            <button onClick={() => {
+                                deleteMagic(m.key)
+                            }}>X
+                            </button>
+                        </td>
                     </tr>
                 ))
             }
             </tbody>
             <tbody>
             <tr>
-                <td colSpan={2}>
-                    <button onClick={appendMagic}> + </button>
+                <td colSpan={3}>
+                    <button onClick={appendMagic}> +</button>
                 </td>
             </tr>
             </tbody>
