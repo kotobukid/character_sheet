@@ -108,7 +108,7 @@ window.onload = () => {
                     <Levels lv={lv} exp={exp} setLv={setLv} setExp={setExp}/>
                 </div>
                 <div>
-                    <Magics magics={magics} setMagics={setMagics} appendMagic={appendMagic}></Magics>
+                    <Magics magics={magics} setMagics={setMagics} appendMagic={appendMagic} />
                 </div>
             </div>
         )
