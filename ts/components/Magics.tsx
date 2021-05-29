@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {Magic} from "../types";
+import BasicButton from "./parts/BasicButton";
 
 declare type MagicsProps = {
     magics: Magic[],
@@ -44,7 +45,7 @@ const Magics: React.FC<MagicsProps> = (props) => {
                 <th>よく使う魔法</th>
                 <th>MP、効果概要</th>
                 <th>
-                    <button onClick={props.appendMagic}>+</button>
+                    <BasicButton type='primary' clicked={props.appendMagic}>+</BasicButton>
                 </th>
             </tr>
             </thead>
@@ -59,10 +60,10 @@ const Magics: React.FC<MagicsProps> = (props) => {
                             changeMagic(m, e, 'description')
                         }}/></td>
                         <td className="center">
-                            <button onClick={() => {
+                            <BasicButton type='danger' clicked={() => {
                                 deleteMagic(m.key)
                             }}>X
-                            </button>
+                            </BasicButton>
                         </td>
                     </tr>
                 ))

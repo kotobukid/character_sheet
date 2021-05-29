@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {BattleSkill} from "../types";
+import BasicButton from "./parts/BasicButton";
 
 declare type BSProps = {
     battleSkills: BattleSkill[],
@@ -56,7 +57,7 @@ const BattleSkills: React.FC<BSProps> = (props => {
             <th>戦闘特技</th>
             <th>効果概要</th>
             <th>
-                <button onClick={props.appendBattleSkill}>+</button>
+                <BasicButton type='primary' clicked={props.appendBattleSkill}>+</BasicButton>
             </th>
         </tr>
         </thead>
@@ -78,10 +79,10 @@ const BattleSkills: React.FC<BSProps> = (props => {
                         }}/>
                     </td>
                     <td className="center">
-                        <button onClick={() => {
+                        <BasicButton type='danger' clicked={() => {
                             deleteBattleSkill(b.key)
                         }}>X
-                        </button>
+                        </BasicButton>
                     </td>
                 </tr>
             ))

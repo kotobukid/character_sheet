@@ -5,9 +5,10 @@ import BaseStatus from './components/BaseStatus'
 import MainSpec from './components/MainSpec'
 import Levels from './components/Levels'
 import "../less/index.less"
-import {BattleSkill, Magic, ProfileData} from "./types"
+import {BattleSkill, JobCollection, Magic, ProfileData} from "./types"
 import BattleSkills from "./components/BattleSkills"
 import Magics from './components/Magics'
+import JobsComponent from './components/Jobs'
 
 function useIncrement<T>(items: T[]): Function {
     const [length, setLength] = React.useState(items.length)
@@ -35,7 +36,6 @@ window.onload = () => {
 
     const MainApp = () => {
         const [exp, setExp] = React.useState(5000)
-        const [lv, setLv] = React.useState(2)
         const [skill, setSkill] = React.useState(12)
         const [body, setBody] = React.useState(5)
         const [mental, setMental] = React.useState(12)
@@ -120,13 +120,25 @@ window.onload = () => {
             setFGrowth
         }
 
+        const jobCollection: JobCollection[] = [
+            {jobType: 'magitec', level: 2},
+            {jobType: 'shooter', level: 10},
+            {jobType: 'sage', level: 4}
+        ]
+
+        let characterLevel = 0;
+        jobCollection.forEach((jc: JobCollection) => {
+            characterLevel = Math.max(jc.level, characterLevel)
+        })
+
         return (
             <div className="root">
                 <div>
                     <Profile {...profile_data}/>
                     <BaseStatus {...base_status} />
-                    <MainSpec {...base_status} lv={lv}/>
-                    <Levels lv={lv} exp={exp} setLv={setLv} setExp={setExp}/>
+                    <MainSpec {...base_status} lv={characterLevel}/>
+                    <Levels jobCollection={jobCollection} exp={exp} setExp={setExp}/>
+                    <JobsComponent jobCollection={jobCollection}/>
                 </div>
                 <div>
                     <BattleSkills battleSkills={battleSkills} setBattleSkills={setBattleSkills}

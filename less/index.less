@@ -55,6 +55,33 @@ th {
     font-size: 1.5em;
 }
 
+button {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 1rem;
+    line-height: 1rem;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 3px;
+    min-width: 16px;
+    text-align: center;
+
+    &:hover {
+        position: relative;
+        top: 1px;
+    }
+
+    &.primary {
+        background-color: lightgreen;
+        border-color: green;
+    }
+
+    &.danger {
+        background-color: pink;
+        border: red;
+    }
+}
+
 #profile {
     margin-bottom: 10px;
 }
@@ -69,6 +96,7 @@ th {
 
 #battle_skills {
     margin-bottom: 10px;
+
     span.level {
         font-weight: bold;
         display: inline-block;
@@ -94,3 +122,7 @@ th {
 //        content: '>>';
 //    }
 //}
+
+#jobs {
+    margin-bottom: 10px;
+}
