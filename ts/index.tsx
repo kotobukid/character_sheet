@@ -5,7 +5,8 @@ import BaseStatus from './components/BaseStatus'
 import MainSpec from './components/MainSpec'
 import Levels from './components/Levels'
 import "../less/index.less"
-import {Magic, ProfileData} from "./types";
+import {BattleSkill, Magic, ProfileData} from "./types"
+import BattleSkills from "./components/BattleSkills"
 import Magics from './components/Magics'
 
 function useIncrement<T>(items: T[]): Function {
@@ -51,19 +52,37 @@ window.onload = () => {
         const [e_growth, setEGrowth] = React.useState(11)
         const [f_growth, setFGrowth] = React.useState(6)
 
-        const _magics = [{
+        const initialMagics = [{
             key: 1, label: 'キュアウーンズ', description: "hogehoge"
         }, {
             key: 2, label: 'エンチャント・ウェポン', description: "hogehoge"
         }] as Magic[]
 
-        const incrementMagics = useIncrement(_magics)
+        const incrementMagics = useIncrement(initialMagics)
 
-        const [magics, setMagics] = React.useState(_magics)
+        const [magics, setMagics] = React.useState(initialMagics)
 
-        const appendMagic = (m: Magic) => {
-            m.key = incrementMagics()
+        const appendMagic = () => {
+            const m: Magic = {
+                key: incrementMagics(), label: '', description: ''
+            }
             setMagics([...magics, m])
+        }
+
+        const initialBattleSkills: BattleSkill[] = [
+            {key: 1, label: 'ターゲッティング', description: '誤射しなくなる'},
+            {key: 2, label: 'かばうI', description: '味方への攻撃を受ける'},
+        ]
+
+        const incrementBattleSkills = useIncrement(initialBattleSkills)
+
+        const [battleSkills, setBattleSkills] = React.useState(initialBattleSkills)
+
+        const appendBattleSkill = () => {
+            const bs: BattleSkill = {
+                key: incrementBattleSkills(), label: '', description: ''
+            }
+            setBattleSkills([...battleSkills, bs])
         }
 
         const base_status = {
@@ -108,7 +127,9 @@ window.onload = () => {
                     <Levels lv={lv} exp={exp} setLv={setLv} setExp={setExp}/>
                 </div>
                 <div>
-                    <Magics magics={magics} setMagics={setMagics} appendMagic={appendMagic} />
+                    <BattleSkills battleSkills={battleSkills} setBattleSkills={setBattleSkills}
+                                  appendBattleSkill={appendBattleSkill}/>
+                    <Magics magics={magics} setMagics={setMagics} appendMagic={appendMagic}/>
                 </div>
             </div>
         )

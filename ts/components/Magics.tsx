@@ -4,7 +4,7 @@ import {Magic} from "../types";
 declare type MagicsProps = {
     magics: Magic[],
     setMagics: (magics: Magic[]) => void,
-    appendMagic: (m: Magic) => void
+    appendMagic: () => void
 }
 
 const Magics: React.FC<MagicsProps> = (props) => {
@@ -14,7 +14,7 @@ const Magics: React.FC<MagicsProps> = (props) => {
     }
 
     const colStyleShort: React.CSSProperties = {
-        width: "24px"
+        width: "30px"
     }
 
     const changeMagic = (m: Magic, e: React.ChangeEvent<HTMLInputElement>, type: 'label' | 'description') => {
@@ -26,10 +26,6 @@ const Magics: React.FC<MagicsProps> = (props) => {
         }))
     }
 
-    const appendMagic = () => {
-        props.appendMagic({label: '', description: '', key: -1})
-    }
-
     const deleteMagic = (id: number) => {
         props.setMagics(props.magics.filter((m: Magic) => {
             return m.key !== id;
@@ -37,7 +33,7 @@ const Magics: React.FC<MagicsProps> = (props) => {
     }
 
     return (
-        <table className="magics">
+        <table id="magics" className="magics">
             <colgroup>
                 <col style={colStyle}/>
                 <col style={colStyle}/>
@@ -72,8 +68,8 @@ const Magics: React.FC<MagicsProps> = (props) => {
             </tbody>
             <tbody>
             <tr>
-                <td colSpan={3}>
-                    <button onClick={appendMagic}> +</button>
+                <td colSpan={3} className="center">
+                    <button onClick={props.appendMagic}>+</button>
                 </td>
             </tr>
             </tbody>

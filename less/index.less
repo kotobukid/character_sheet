@@ -1,60 +1,96 @@
+@black1: #464242;
+
 * {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 #main {
-  font-size: 0.8rem;
-  padding: 10px;
+    font-size: 0.8rem;
+    padding: 10px;
 }
 
 table {
-  table-layout: fixed;
-  border-collapse: collapse;
+    table-layout: fixed;
+    border-collapse: collapse;
 
-  th, td {
-    padding: 2px;
-    border: 1px solid grey;
-  }
+    th, td {
+        padding: 2px;
+        border: 1px solid grey;
+    }
+}
+
+th {
+    background-color: @black1;
+    color: white;
 }
 
 .center {
-  text-align: center;
+    text-align: center;
 }
 
 .bold {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .up {
-  position: relative;
-  top: -0.9rem;
+    position: relative;
+    top: -0.9rem;
 }
 
 .bgWhite {
-  background-color: white;
+    background-color: white;
 }
 
 .opacity50 {
-  opacity: 0.5;
+    opacity: 0.5;
 }
+
 .halfUp {
-  position: relative;
-  top: -0.5rem;
+    position: relative;
+    top: -0.5rem;
 }
 
 .large {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
 
 #profile {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #base_status {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 #main_spec {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
+
+#battle_skills {
+    margin-bottom: 10px;
+    span.level {
+        font-weight: bold;
+        display: inline-block;
+        width: 13px;
+        text-align: right;
+    }
+}
+
+#magics {
+    margin-bottom: 10px;
+}
+
+//.battleSkillName {
+//    @margin: 0.2em;
+//
+//    &:before {
+//        margin-right: @margin;
+//        content: '<<';
+//    }
+//
+//    &:after {
+//        margin-left: @margin;
+//        content: '>>';
+//    }
+//}

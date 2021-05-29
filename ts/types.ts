@@ -73,3 +73,9 @@ export declare type Magic = {
     label: string,
     description: string
 }
+
+export declare type BattleSkill = {
+    key: number,
+    label: string,
+    description: string
+}
