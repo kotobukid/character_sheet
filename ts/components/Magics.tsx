@@ -43,7 +43,9 @@ const Magics: React.FC<MagicsProps> = (props) => {
             <tr>
                 <th>よく使う魔法</th>
                 <th>MP、効果概要</th>
-                <th/>
+                <th>
+                    <button onClick={props.appendMagic}>+</button>
+                </th>
             </tr>
             </thead>
             <tbody>
@@ -65,13 +67,6 @@ const Magics: React.FC<MagicsProps> = (props) => {
                     </tr>
                 ))
             }
-            </tbody>
-            <tbody>
-            <tr>
-                <td colSpan={3} className="center">
-                    <button onClick={props.appendMagic}>+</button>
-                </td>
-            </tr>
             </tbody>
         </table>
     )

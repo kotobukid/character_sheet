@@ -85,6 +85,8 @@ window.onload = () => {
             setBattleSkills([...battleSkills, bs])
         }
 
+        const [battleSkillsAuto, setBattleSkillsAuto] = React.useState({label: '自動習得など', description: ''})
+
         const base_status = {
             skill,
             setSkill,
@@ -128,7 +130,10 @@ window.onload = () => {
                 </div>
                 <div>
                     <BattleSkills battleSkills={battleSkills} setBattleSkills={setBattleSkills}
-                                  appendBattleSkill={appendBattleSkill}/>
+                                  appendBattleSkill={appendBattleSkill}
+                                  battleSkillsAuto={battleSkillsAuto}
+                                  setBattleSkillsAuto={setBattleSkillsAuto}
+                    />
                     <Magics magics={magics} setMagics={setMagics} appendMagic={appendMagic}/>
                 </div>
             </div>

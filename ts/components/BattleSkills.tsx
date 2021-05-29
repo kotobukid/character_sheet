@@ -4,7 +4,9 @@ import {BattleSkill} from "../types";
 declare type BSProps = {
     battleSkills: BattleSkill[],
     setBattleSkills: (battleSkills: BattleSkill[]) => void,
-    appendBattleSkill: () => void
+    appendBattleSkill: () => void,
+    battleSkillsAuto: { label: string, description: string },
+    setBattleSkillsAuto: (a: { label: string, description: string }) => void
 }
 
 const BattleSkills: React.FC<BSProps> = (props => {
@@ -37,6 +39,12 @@ const BattleSkills: React.FC<BSProps> = (props => {
         }));
     }
 
+    const updateBattleSkillsAuto = (value: string, type: 'label' | 'description') => {
+        const update: { label?: string, description?: string } = {}
+        update[type] = value
+        props.setBattleSkillsAuto({...props.battleSkillsAuto, ...update})
+    }
+
     return (<table id="battle_skills">
         <colgroup>
             <col style={colStyle}/>
@@ -47,7 +55,9 @@ const BattleSkills: React.FC<BSProps> = (props => {
         <tr>
             <th>戦闘特技</th>
             <th>効果概要</th>
-            <th/>
+            <th>
+                <button onClick={props.appendBattleSkill}>+</button>
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -77,13 +87,14 @@ const BattleSkills: React.FC<BSProps> = (props => {
             ))
         }
         <tr>
-            <td colSpan={3} className="center">
-                <button onClick={props.appendBattleSkill}>+</button>
-            </td>
+            <td><textarea onChange={(e) => {
+                updateBattleSkillsAuto(e.target.value, 'label')
+            }} value={props.battleSkillsAuto.label} /></td>
+            <td colSpan={2}><textarea onChange={(e) => {
+                updateBattleSkillsAuto(e.target.value, 'description')
+            }} value={props.battleSkillsAuto.description}/></td>
         </tr>
         </tbody>
-
-
     </table>)
 })
 
