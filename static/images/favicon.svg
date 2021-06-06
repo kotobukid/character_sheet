@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="357.861" y1="205.722" x2="357.861" y2="566.278" id="gradient-0">
+      <stop offset="0" style="stop-color: rgba(216, 216, 216, 1)"/>
+      <stop offset="1" style="stop-color: rgb(104, 195, 0);"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="259.154" y1="-5.206" x2="259.154" y2="524.708" id="gradient-1">
+      <stop offset="0" style="stop-color: rgba(0, 0, 0, 1)"/>
+      <stop offset="1" style="stop-color: rgb(0, 42, 109);"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="357.861" y1="205.722" x2="357.861" y2="566.278" id="gradient-2" gradientTransform="matrix(-0.885876, 0.463922, -0.467366, -0.892448, 882.909388, 567.227189)">
+      <stop offset="0" style="stop-color: rgba(0, 158, 167, 1)"/>
+      <stop offset="0.843" style="stop-color: rgb(255, 255, 255);"/>
+      <stop offset="1" style="stop-color: rgba(0, 62, 65, 1)"/>
+    </linearGradient>
+  </defs>
+  <rect x="1.114" y="-5.206" width="516.08" height="529.914" style="fill: url(#gradient-1);"/>
+  <path style="fill: url(#gradient-0); stroke-width: 38.4924px; paint-order: stroke; stroke: url(#gradient-2);" transform="matrix(1.117103, 0, 0, 1.117103, -149.767273, -181.201691)" d="M 534 440 A 180.278 180.278 0 1 1 362 205.722 L 362 386 Z" bx:shape="pie 362 386 0 180.278 107.43 360 1@2f78d146"/>
+</svg>
