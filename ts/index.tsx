@@ -9,6 +9,7 @@ import {BaseStatusData, BattleSkill, JobCollection, Magic, ProfileData} from "./
 import BattleSkills from "./components/BattleSkills"
 import Magics from './components/Magics'
 import JobsComponent from './components/Jobs'
+import History from './components/history'
 
 declare type Key = keyof BaseStatusData;
 
@@ -47,6 +48,8 @@ window.onload = () => {
         const incrementMagics = useIncrement(initialMagics)
 
         const [magics, setMagics] = React.useState(initialMagics)
+
+        const [history, setHistory] = React.useState('')
 
         const appendMagic = () => {
             const m: Magic = {
@@ -123,6 +126,9 @@ window.onload = () => {
                                   setBattleSkillsAuto={setBattleSkillsAuto}
                     />
                     <Magics magics={magics} setMagics={setMagics} appendMagic={appendMagic}/>
+                </div>
+                <div>
+                    <History history={history} setHistory={setHistory} />
                 </div>
             </div>
         )
