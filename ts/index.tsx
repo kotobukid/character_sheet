@@ -5,11 +5,12 @@ import BaseStatus from './components/BaseStatus'
 import MainSpec from './components/MainSpec'
 import Levels from './components/Levels'
 import "../less/index.less"
-import {BaseStatusData, BattleSkill, JobCollection, Magic, ProfileData} from "./types"
+import {BaseStatusData, BattleSkill, JobCollection, LanguageSource, Magic, ProfileData} from "./types"
 import BattleSkills from "./components/BattleSkills"
 import Magics from './components/Magics'
 import JobsComponent from './components/Jobs'
 import History from './components/history'
+import Languages from "./components/Languages"
 
 declare type Key = keyof BaseStatusData;
 
@@ -110,6 +111,10 @@ window.onload = () => {
             characterLevel = Math.max(jc.level, characterLevel)
         })
 
+        const [languages, setLanguages] = React.useState([
+            {slug: 'area1', name: '地方語', speakable: 1, readable: 1}
+        ] as LanguageSource[])
+
         return (
             <div className="root">
                 <div>
@@ -129,6 +134,7 @@ window.onload = () => {
                 </div>
                 <div>
                     <History history={history} setHistory={setHistory} />
+                    <Languages languages={languages} setLanguages={setLanguages}/>
                 </div>
             </div>
         )

@@ -83,3 +83,22 @@ export declare type JobCollection = {
     jobType: JobType,
     level: number
 }
+
+export declare type LanguageSource = {
+    slug: string,
+    name: string,
+    speakable: ThreeStates,
+    readable: ThreeStates,
+}
+
+export declare type ThreeStates = 0 | 1 | 2
+
+export const basicLanguageSources: LanguageSource[] = [
+    {slug: 'common', name: '交易共通語', speakable: 1, readable: 1},
+    {slug: 'god', name: '神紀文明語', speakable: 0, readable: 1},
+    {slug: 'magic', name: '魔法文明語', speakable: 1, readable: 1},
+    {slug: 'magitec', name: '魔動機文明語', speakable: 1, readable: 1},
+    {slug: 'fairy', name: '妖精語', speakable: 1, readable: 0},
+    {slug: 'devil', name: '魔神語', speakable: 1, readable: 0},
+    {slug: 'savage', name: '汎用蛮族語', speakable: 1, readable: 1},
+]
