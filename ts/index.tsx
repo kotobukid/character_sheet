@@ -5,10 +5,12 @@ import BaseStatus from './components/BaseStatus'
 import MainSpec from './components/MainSpec'
 import Levels from './components/Levels'
 import "../less/index.less"
-import {BattleSkill, JobCollection, Magic, ProfileData} from "./types"
+import {BaseStatusData, BattleSkill, JobCollection, Magic, ProfileData} from "./types"
 import BattleSkills from "./components/BattleSkills"
 import Magics from './components/Magics'
 import JobsComponent from './components/Jobs'
+
+declare type Key = keyof BaseStatusData;
 
 function useIncrement<T>(items: T[]): Function {
     const [length, setLength] = React.useState(items.length)
@@ -35,22 +37,6 @@ window.onload = () => {
     }
 
     const MainApp = () => {
-        const [exp, setExp] = React.useState(5000)
-        const [skill, setSkill] = React.useState(12)
-        const [body, setBody] = React.useState(5)
-        const [mental, setMental] = React.useState(12)
-        const [a, setA] = React.useState(6)
-        const [b, setB] = React.useState(7)
-        const [c, setC] = React.useState(4)
-        const [d, setD] = React.useState(6)
-        const [e, setE] = React.useState(11)
-        const [f, setF] = React.useState(6)
-        const [a_growth, setAGrowth] = React.useState(6)
-        const [b_growth, setBGrowth] = React.useState(7)
-        const [c_growth, setCGrowth] = React.useState(4)
-        const [d_growth, setDGrowth] = React.useState(6)
-        const [e_growth, setEGrowth] = React.useState(11)
-        const [f_growth, setFGrowth] = React.useState(6)
 
         const initialMagics = [{
             key: 1, label: 'キュアウーンズ', description: "hogehoge"
@@ -87,37 +73,27 @@ window.onload = () => {
 
         const [battleSkillsAuto, setBattleSkillsAuto] = React.useState({label: '自動習得など', description: ''})
 
-        const base_status = {
-            skill,
-            setSkill,
-            body,
-            setBody,
-            mental,
-            setMental,
-            a,
-            b,
-            c,
-            d,
-            e,
-            f,
-            setA,
-            setB,
-            setC,
-            setD,
-            setE,
-            setF,
-            a_growth,
-            b_growth,
-            c_growth,
-            d_growth,
-            e_growth,
-            f_growth,
-            setAGrowth,
-            setBGrowth,
-            setCGrowth,
-            setDGrowth,
-            setEGrowth,
-            setFGrowth
+        const [base_status, setBaseStatus] = React.useState({
+            skill: 12,
+            body: 5,
+            mental: 12,
+            a: 6,
+            b: 7,
+            c: 4,
+            d: 6,
+            e: 11,
+            f: 6,
+            a_growth: 0,
+            b_growth: 0,
+            c_growth: 0,
+            d_growth: 0,
+            e_growth: 0,
+            f_growth: 0,
+            exp: 0,
+        })
+
+        const update = (rec: Record<Key, any>) => {
+            setBaseStatus({...base_status, ...rec})
         }
 
         const jobCollection: JobCollection[] = [
@@ -135,9 +111,9 @@ window.onload = () => {
             <div className="root">
                 <div>
                     <Profile {...profile_data}/>
-                    <BaseStatus {...base_status} />
+                    <BaseStatus {...base_status} update={update}/>
                     <MainSpec {...base_status} lv={characterLevel}/>
-                    <Levels jobCollection={jobCollection} exp={exp} setExp={setExp}/>
+                    <Levels {...base_status} jobCollection={jobCollection} update={update}/>
                     <JobsComponent jobCollection={jobCollection}/>
                 </div>
                 <div>
